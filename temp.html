@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>侧边栏示例</title>
+	<style>
+		/* CSS 样式 */
+		.sidebar {
+			position: fixed;
+			top: 0;
+			left: -250px;
+			/* 默认隐藏侧边栏 */
+			width: 250px;
+			height: 100%;
+			background-color: #333;
+			transition: left 0.3s ease;
+		}
+
+		.sidebar.active {
+			left: 0;
+			/* 显示侧边栏 */
+		}
+
+		.sidebar .close-btn {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.main-content {
+			margin-left: 250px;
+			/* 为了让主内容区域腾出空间给侧边栏 */
+		}
+
+		.btn-toggle-sidebar {
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			/* 初始位置 */
+			padding: 10px;
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			cursor: pointer;
+			transition: transform 0.2s ease;
+			/* 添加过渡效果 */
+		}
+
+		.sidebar.active .btn-toggle-sidebar {
+			transform: rotate(45deg);
+			/* 侧边栏显示时，按钮旋转45度 */
+		}
+	</style>
+</head>
+
+<body>
+
+	<div class="sidebar" id="sidebar">
+		<button class="btn-toggle-sidebar" id="btn-toggle-sidebar" onclick="toggleSidebar()">Toggle Sidebar</button>
+		<div class="close-btn" onclick="toggleSidebar()">×</div>
+		<h2>侧边栏</h2>
+		<p>这里放一些内容...</p>
+	</div>
+
+	<div class="main-content">
+		<h1>主内容区域</h1>
+		<p>这是主内容区域的内容...</p>
+	</div>
+
+	<script>
+		function toggleSidebar() {
+			var sidebar = document.getElementById('sidebar');
+			sidebar.classList.toggle('active');
+		}
+	</script>
+
+</body>
+
+</html>
