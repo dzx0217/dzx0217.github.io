@@ -234,14 +234,6 @@
 
 
 
-	<div class="sidebar" id="sidebar">
-		<!-- <button class="btn-toggle-sidebar" id="btn-toggle-sidebar" onclick="toggleSidebar()">Toggle Sidebar</button>
-				<div class="close-btn" onclick="toggleSidebar()">×</div> -->
-		<button class="btn-toggle-sidebar" id="btn-toggle-sidebar" onclick="toggleSidebar()">
-			<img src="images/button.jpg" alt="按钮图标" style="width: 100%; height: 100%;">
-		</button>
-
-	</div>
 
 	<div class="container" id="container">
 		<!-- Sticky 目录 -->
@@ -392,12 +384,6 @@
 
 	</div>
 
-	<script>
-		function toggleSidebar() {
-			var sidebar = document.getElementById('sidebar');
-			sidebar.classList.toggle('active');
-		}
-	</script>
 
 	<script>
 		window.addEventListener('DOMContentLoaded', function () {
@@ -422,12 +408,6 @@
 			window.addEventListener('scroll', toggleScrollTopButton);
 		});
 
-		function toggleSidebar() {
-			var sidebar = document.getElementById('sidebar');
-			sidebar.classList.toggle('active');
-			var mainContent = document.getElementById('main-content');
-			mainContent.classList.toggle('shifted');
-		}
 	</script>
 </body>
 
