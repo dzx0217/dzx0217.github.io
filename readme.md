@@ -79,3 +79,8 @@
 
 ## resume：[GPT协助写简历](https://chat.openai.com/share/02bf7548-77f1-4c1d-a1e1-4e3dd8ee494e)
 
+## ppt
+
+- RevealJS: 可以在线展示ppt，以html的形式，但是不够正式；
+- Template：ppt模板；
+
