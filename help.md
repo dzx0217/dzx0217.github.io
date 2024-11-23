@@ -1,1 +1,0 @@
-[GPT协助写简历](https://chat.openai.com/share/02bf7548-77f1-4c1d-a1e1-4e3dd8ee494e)

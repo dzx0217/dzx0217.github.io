@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>戴 子轩的简历</title>
+	<style>
+		body {
+			font-family: SimSun, '宋体', sans-serif;
+			margin: 0;
+			padding: 0;
+			line-height: 1.6;
+			background-color: rgb(255, 255, 255);
+			color: #333;
+		}
+
+		.container {
+			max-width: 800px;
+			margin: 20px auto;
+			padding: 20px;
+			border-radius: 5px;
+			background-color: #fff;
+			box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+		}
+
+		h1,
+		h2,
+		h3,
+		h4,
+		h5,
+		h6 {
+			margin-top: 0;
+		}
+
+		.section {
+			margin-bottom: 30px;
+		}
+
+		.section h2 {
+			border-bottom: 2px solid #007bff;
+			padding-bottom: 10px;
+			color: #007bff;
+		}
+
+		.section p {
+			margin: 10px 0;
+		}
+
+		.section ul {
+			margin: 10px 0;
+			padding-left: 20px;
+		}
+
+		/* Sticky 目录 */
+		.sticky {
+			position: sticky;
+			top: 0;
+			background-color: #fff;
+			padding: 10px 0;
+			z-index: 1000;
+			overflow-x: auto;
+			white-space: nowrap;
+			/* box-shadow: 0px 2px 5px rgba(0, 0, 0, 0.1); */
+			text-align: center;
+			/* 添加这一行，这里也设置宋体字体*/
+			font-family: SimSun, '宋体', sans-serif;
+		}
+
+		.sticky ul {
+			list-style-type: none;
+			padding: 0;
+			display: inline-block;
+			margin: 0;
+			/* 添加这一行，消除默认的外边距 */
+		}
+
+		.sticky li {
+			display: inline;
+			margin-right: 20px;
+		}
+
+		.sticky a {
+			text-decoration: none;
+			color: #555;
+			transition: color 0.3s ease;
+		}
+
+		.sticky a:hover {
+			color: #007bff;
+		}
+
+		header {
+			background-color: #fff;
+			/* 修改背景颜色 */
+			color: #282A36;
+			padding: 10px;
+			border-radius: 5px 5px 0 0;
+		}
+
+		header h1 {
+			margin: 0;
+			font-size: 24px;
+		}
+
+		header p {
+			margin: 5px 0;
+			font-size: 16px;
+		}
+
+		hr {
+			border: none;
+			border-top: 2px solid #ccc;
+		}
+
+		@media (max-width: 768px) {
+			.container {
+				max-width: 100%;
+				margin: 20px;
+			}
+		}
+
+		.edu-item {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.edu-item h3 {
+			margin: 0;
+		}
+
+		.edu-item p {
+			margin: 0;
+		}
+
+		.expe-item {
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+		}
+
+		.expe-item h3 {
+			margin: 0;
+		}
+
+		.expe-item p {
+			margin: 0;
+		}
+
+		/* CSS 样式 */
+		.sidebar {
+			position: fixed;
+			top: 0;
+			left: -250px;
+			/* 默认隐藏侧边栏 */
+			width: 250px;
+			height: 100%;
+			background-color: #333;
+			transition: left 0.3s ease;
+		}
+
+		.sidebar.active {
+			left: 0;
+			/* 显示侧边栏 */
+		}
+
+		.sidebar .close-btn {
+			position: absolute;
+			top: 10px;
+			right: 10px;
+			color: #fff;
+			cursor: pointer;
+		}
+
+		.main-content {
+			margin-left: 250px;
+			/* 为了让主内容区域腾出空间给侧边栏 */
+		}
+
+		.btn-toggle-sidebar {
+			position: fixed;
+			top: 10px;
+			left: 10px;
+			width: 50px;
+			/* 按钮宽度 */
+			height: 50px;
+			/* 按钮高度 */
+			border-radius: 50%;
+			/* 将按钮设为圆形 */
+			background-color: #007bff;
+			border: none;
+			cursor: pointer;
+			transition: transform 0.2s ease;
+			/* 添加过渡效果 */
+		}
+
+		.sidebar.active .btn-toggle-sidebar {
+			transform: rotate(360deg);
+			/* 侧边栏显示时，按钮旋转45度 */
+		}
+
+		.container {
+			transition: margin-left 0.3s ease;
+			/* 添加过渡效果 */
+		}
+
+		.sidebar {
+			position: fixed;
+			top: 0;
+			left: -250px;
+			/* 默认隐藏侧边栏 */
+			width: 250px;
+			height: 100%;
+			background-color: #333;
+			transition: left 0.3s ease;
+			/* 添加过渡效果 */
+		}
+
+		.sidebar.active {
+			left: 0;
+			/* 显示侧边栏 */
+		}
+
+		.shifted {
+			margin-left: 250px;
+			/* 主内容区域右移以留出空间给侧边栏 */
+		}
+	</style>
+	</style>
+</head>
+
+<body>
+
+
+
+
+	<div class="container" id="container">
+		<!-- Sticky 目录 -->
+		<div class="sticky">
+			<ul>
+				<li><a href="#profile">基本资料</a></li>
+				<li><a href="#education">教育背景</a></li>
+				<li><a href="#experience">工作经历</a></li>
+				<li><a href="#skills">专业技能</a></li>
+				<li><a href="#projects">项目经验</a></li>
+				<li><a href="#honors">荣誉奖项</a></li>
+				<li><a href="#groupactivity">社团活动</a></li>
+				<li><a href="#interests">兴趣爱好</a></li>
+			</ul>
+		</div>
+
+		<div id="profile" class="section">
+			<h2>基本资料</h2>
+			<header style="display: flex; align-items: center;">
+				<img src="../statics/images/daizixuan.png" alt="个人照片"
+					style="width: 1in; height: 1in; border-radius: 5px; margin-right: 20px;">
+				<div>
+					<h1>戴子轩</h1>
+					<p>软件工程师</p>
+					<p>
+						<em>2001.05</em> | <em>13297010217</em> | <em>dzx0217@qq.com</em> | <a
+							href="https://github.com/dzxy201030"><em>github.com/dzxy201030</em></a>
+					</p>
+				</div>
+			</header>
+		</div>
+
+		<div id="education" class="section">
+			<h2>教育背景</h2>
+			<div class="edu-item">
+				<h3>浙江工商大学</h3>
+
+				<p>硕士 - 计算机技术</p>
+
+				<p><em>2024.09 - 2027.06</em></p>
+			</div>
+			<div class="edu-item">
+				<h3>华东交通大学</h3>
+
+				<p>本科 - 计算机科学与技术</p>
+
+				<p><em>2019.09 - 2023.06</em></p>
+			</div>
+		</div>
+
+		<div id="experience" class="section">
+			<h2>工作经历</h2>
+
+			<div class="expe-item">
+				<h3>杭州跃真科技</h3>
+
+				<p>信息研发实习生</p>
+
+				<p><em>2024.04 - 2024.06</em></p>
+			</div>
+			<ul>
+				<li>利用爬虫爬取相应的关键数据，并将其根据标签分类，搭建数据库平台。</li>
+				<li>接入AI工具，使得查询操作更便捷智能。</li>
+			</ul>
+
+			<div class="expe-item">
+				<h3>上海赣谷科技</h3>
+
+				<p>软件实习生</p>
+
+				<p><em>2022.07 - 2022.09</em></p>
+			</div>
+			<ul>
+				<li>负责外卖微信小程序开发，根据开发进度和任务分配，完成相应模块软件的设计、开发、编程任务。</li>
+				<li>进行程序单元、功能的测试，查出软件存在的缺陷，配合测试组进行负责程序的测试和对缺陷的修正。</li>
+				<li>优化手动填写地址，实现了智能识别地址功能，分析数据源，识别出、手机号、联系人、详细地址等等。</li>
+			</ul>
+		</div>
+
+		<div id="skills" class="section">
+			<h2>专业技能</h2>
+			<ul>
+				<li><strong>熟悉</strong>C/C++，<strong>掌握</strong>基本的数据结构与算法、操作系统、计算机网络等相关知识。</li>
+				<li><strong>掌握</strong>基础知识，<strong>了解</strong>面向对象、集合、反射、IO、泛型等，有良好的编码习惯。</li>
+				<li><strong>掌握</strong>使用SpringBoot等开源框架，<strong>了解</strong>其大致原理与执行流程，能够使用主流框架独立进行业务开发。</li>
+				<li><strong>掌握</strong>MySQL的基本使用，<strong>了解</strong>锁机制、索引、事务，能够编写常用的SQL语句以及SQL优化。</li>
+				<li><strong>掌握</strong>使用Git、SVN等工具，能够对项目进行版本控制。</li>
+				<li><strong>掌握</strong>基本的Linux命令。</li>
+			</ul>
+		</div>
+
+		<div id="projects" class="section">
+			<h2>项目经验</h2>
+			<div class="expe-item">
+				<h3>校园优选小程序</h3>
+				<p>独立开发</p>
+				<p><em>2023.04 - 2023.06</em></p>
+			</div>
+			<ul>
+				<li><strong>技术栈：SpringBoot、Vue、WXML、WXSS、MySQL</strong></li>
+				<li>基于前后端分离的思想，后端基于SpringBoot，网页端基于Vue、ElementPlus框架开发后台管理系统，移动端基于微信原生框架，数据存储采用关系型数据库MySQL。</li>
+				<li><strong>描述：</strong>面向校园师生开发的一款小程序，目的是在校园发展成真正校园优选，为用户提供便利。
+					<br>
+					拥有代理、用户、管理员。用户微信授权登录小程序，选择站点和商品发起团购，有评论、收藏、查看订单等功能。代理统一采购至自己的站点、可以更新自己的地址，上下架能采购的商品。用户也可以申请成为代理。管理员统一进行管理和内容审核。
+				</li>
+			</ul>
+		</div>
+
+		<div id="honors" class="section">
+			<h2>荣誉奖项</h2>
+			<ul>
+				<li>国家励志奖学金<em>(2020.12)</em>、二等奖学金<em>(2020.11)</em>、三好学生<em>(2020.11)</em></li>
+				<li>校ACM竞赛三等奖<em>(2021.11)</em>、江西省智慧交通大赛优胜奖<em>(2020.11)</em></li>
+				<li>软件著作权两项、英语六级</li>
+			</ul>
+		</div>
+
+		<div id="groupactivity" class="section">
+			<h2>社团活动</h2>
+			<div class="expe-item">
+				<h3>三下乡</h3>
+				<p>组长</p>
+				<p><em>2022.04 - 2022.06</em></p>
+			</div>
+			<ul>
+				<li>组织小组成员进行基层实践锻炼。例如到农村、社区等基层开展生产劳动、社会调查、参观考察等活动。</li>
+				<li>参加志愿服务两月。例如在城市社区、农村基层参加支教，政策宣传等公益活动，增强了社会责任感。</li>
+			</ul>
+			<div class="expe-item">
+				<h3>组织部</h3>
+				<p>副部长</p>
+				<p><em>2019.10 - 2021.10</em></p>
+			</div>
+			<ul>
+				<li>负责组织学院的一些线下活动，例如每周乐跑、校迷你马拉松、反诈骗知识普及大会等。</li>
+				<li>负责线上和其他社团组织等交接，增进了社团之间的交流。</li>
+			</ul>
+		</div>
+
+		<div id="interests" class="section">
+			<h2>兴趣爱好</h2>
+			<p>阅读、编程、游泳、跑步</p>
+			<p>我是一个热爱挑战的<em>problem solver</em></p>
+		</div>
+	</div>
+	<button id="scrollTopButton"
+		style="position: fixed; bottom: 20px; right: 20px; padding: 10px 20px; background-color: #007bff; color: #fff; border: none; border-radius: 5px; cursor: pointer; display: none;">返回顶部</button>
+
+	</div>
+
+
+	<script>
+		window.addEventListener('DOMContentLoaded', function () {
+			const scrollTopButton = document.getElementById('scrollTopButton');
+
+			function scrollToTop() {
+				window.scrollTo({
+					top: 0,
+					behavior: 'smooth'
+				});
+			}
+
+			function toggleScrollTopButton() {
+				if (window.scrollY > 100) {
+					scrollTopButton.style.display = 'block';
+				} else {
+					scrollTopButton.style.display = 'none';
+				}
+			}
+
+			scrollTopButton.addEventListener('click', scrollToTop);
+			window.addEventListener('scroll', toggleScrollTopButton);
+		});
+
+	</script>
+</body>
+
+</html>

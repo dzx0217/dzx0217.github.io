@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>关于相关研究的讨论</title>
+</head>
+
+<body>
+	<h2>讨论《Do practitioners intentionally self-fix TD and why？》</h2>
+	<p>
+		首先，Tan等人的结论是基于何种规模的数据集以及项目来源是值得探讨的问题呢。另外，文献2、3中提到的“大部分”具体比例到底是多少，也尚不明确呀。
+	</p>
+	<p>
+		本篇文章主要是借助问卷来调查Self-Fix的行为，不过其结论的普适性存在疑问，毕竟还需要用真实的项目数据去进一步验证，所以它的参考价值相对有限哦。
+	</p>
+	<h3>明确的未来研究方向如下：</h3>
+	<p>
+		从实证研究当中，去寻找有效特征，用来预测SATD注释到底是会被Self-Fixed呢，还是会被其他人修复。本质上来说，这属于一个分类问题，其中正类就是Self-Fix，负类则为他人修复。输入的内容包含代码片段以及SATD注释，输出的结果是对Self-Fix情况的判断，也就是验证是否是Self-Fixed。而重要特征是基于SATD注释，以注释为基础，去辅助分类预测，进而丰富信息维度，提升模型性能呢。
+	</p>
+	<h3>关于Code-t5，RNN，GNN等模型：</h3>
+	<p>
+		我们需要重点关注这些模型的基本思想、用途、操作过程、优势与区别、原因与动机等方面，要是有必要的话，再去深入了解它们底层公式的实现情况哦。
+	</p>
+	<h3>未来工作：</h3>
+	<h4>阅读相关文献：</h4>
+	<ol>
+		<li>
+			<a href="https://www.sciencedirect.com/science/article/abs/pii/S0950584921001889">《Does it matter who pays
+				back Technical Debt? An empirical study of self-fixed TD》IST</a>
+			<p>
+				要关注其如何收集数据，从哪些角度进行分析，开源数据集又是怎样的情况。模仿其中的实证研究、统计分析等做法，找到存在显著性差异的特征数据，再依据差异的现象和特征，进一步提取特征、量化特征，然后把这些特征放到ML模型当中去进行训练、优化哦。
+			</p>
+		</li>
+		<li>
+			<a href="https://ieeexplore.ieee.org/abstract/document/9825872">《An Exploratory Study on Self-Fixed Software
+				Vulnerabilities in OSS Projects》SANER</a>
+			<p>
+				要试着去找出Vulnerabilities与SATD的共性，并且将其与Self-Fix的工作联系起来呀。
+			</p>
+		</li>
+	</ol>
+	<p>
+		对于关于文本分类的机器学习模型，可以到教学网站去拷贝代码，先跑通代码，然后针对自己面临的问题去进行相应的改进哦。
+	</p>
+</body>
+
+</html>
