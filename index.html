@@ -82,6 +82,23 @@
 			align-items: center;
 		}
 
+		.sidebar_btn {
+			width: 30px;
+			height: 30px;
+			cursor: pointer;
+			border: none;
+			background: none;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			margin: 10px 0;
+		}
+
+		.sidebar_btn img {
+			max-width: 100%;
+			max-height: 100%;
+		}
+
 		/* 主内容 */
 		.content {
 			flex: 1;
@@ -140,14 +157,6 @@
 			max-width: 100%;
 			max-height: 100%;
 		}
-
-		/* 链接样式 */
-		.sidebar-content a {
-			display: block;
-			margin: 10px 0;
-			/* color: #007bff; */
-			text-decoration: none;
-		}
 	</style>
 </head>
 
@@ -156,16 +165,16 @@
 	<div class="header">
 		<!-- 顶部左部分 -->
 		<div class="header-left" id="header-left">
-			<!-- home按钮 -->
-			<button class="btn" id="btn-home" onclick="window.location.href='index.html'" title="首页">
-				<img src="statics/icons/home.png" alt="首页">
+			<!-- home按钮，默认跳转到index.html -->
+			<button class="btn" id="btn-home" onclick="window.location.href='index.html'" title="home">
+				<img src="statics/icons/home.png" alt="home">
 			</button>
 		</div>
 		<!-- 顶部右部分 -->
 		<div class="header-right">
 			<!-- 外部按钮 -->
-			<button class="btn" id="btn-toggle-sidebar" onclick="toggleSidebar()" title="切换侧边栏">
-				<img src="statics/icons/sidebar.png" alt="切换侧边栏">
+			<button class="btn" id="btn-toggle-sidebar" onclick="toggleSidebar()" title="sidebar">
+				<img src="statics/icons/sidebar.png" alt="sidebar">
 			</button>
 		</div>
 	</div>
@@ -176,16 +185,20 @@
 		<div class="sidebar" id="sidebar">
 			<div class="sidebar-content">
 				<!-- 侧边栏内容 -->
-				<a href="index.html">/</a>
-				<a href="ppt_menu.html">ppt</a>
-				<a href="resume_menu.html">resume</a>
-				<a href="weekly_menu.html">weekly</a>
+				<button class="sidebar_btn" title="home" onclick="changeContent('onshow.html')"><img
+						src="statics/icons/home.png" alt="home"></button>
+				<button class="sidebar_btn" title="ppt" onclick="changeContent('index/ppt_list.html')"><img
+						src="statics/icons/ppt.png" alt="ppt"></button>
+				<button class="sidebar_btn" title="resume" onclick="changeContent('index/resume_list.html')"><img
+						src="statics/icons/resume.png" alt="resume"></button>
+				<button class="sidebar_btn" title="weekly" onclick="changeContent('index/weekly_list.html')"><img
+						src="statics/icons/weekly.png" alt="weekly"></button>
 			</div>
 		</div>
 
-		<!-- 主内容 -->
+		<!-- 主内容，默认显示onshow.html -->
 		<div class="content">
-			<iframe src="onshow.html" frameborder="0" class="iframe-content"></iframe>
+			<iframe id="iframe-content" src="onshow.html" class="iframe-content"></iframe>
 		</div>
 
 	</div>
@@ -215,6 +228,11 @@
 			setTimeout(function () {
 				toggleButton.style.opacity = '1';
 			}, 300); // 动画时间同步为300ms
+		}
+
+		// 侧边栏按钮，动态修改iframe的src，实现动态修改内容
+		function changeContent(target) {
+			document.getElementById('iframe-content').src = target;
 		}
 	</script>
 </body>
