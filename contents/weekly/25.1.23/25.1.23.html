@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+	<title>SATD数据集采集</title>
+</head>
+
+<body>
+	<h1>SATD数据集采集</h1>
+	<ul>
+		<li>目前的方法获取SATD：</li>
+		<ol>
+			<p></p>
+			<li>satdbailiff自动提取；</li>
+			<li>写程序分析一下git diff的输出，从里面提取satd；</li>
+		</ol>
+		<p></p>
+		<li>当前计划：</li>
+		<p></p>
+		<ol>
+			<li>先用satd baililif提取项目信息；</li>
+			<li style="color: purple;">将提取出的commit hash找到对应的提交者；目前先写python脚本</li>
+			<li>对比移除与引入的提交者是否同一个人；</li>
+		</ol>
+	</ul>
+	<hr>
+	<h1>SATD分类工作</h1>
+	<ul>
+		<li>
+			人工审查GPT分类对错；
+		</li>
+		<li>手动打分，有与GPT不同结果则标红；</li>
+		<li>统计不同结果个数；</li>
+		<li style="color: red;">32/324</li>
+	</ul>
+</body>
+
+</html>
